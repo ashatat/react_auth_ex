@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
-import q from 'query-string';
-import {
-  withRouter,
-  useHistory,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function AboutUs(props) {
-  const [data, setData] = useState([]);
-  const [page, setPage] = useState(2);
+  const [data] = useState([]);
+  const [page] = useState(2);
   const history = useHistory();
 
   const pStart = (page - 1) * 10;

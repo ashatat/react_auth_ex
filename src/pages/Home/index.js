@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(2);
+  const [page] = useState(2);
   const [error, setError] = useState('');
 
   const pStart = (page - 1) * 10;
@@ -47,7 +47,9 @@ export default function Home() {
       {!error &&
         data
           .slice(pStart, pEnd)
-          .map((d) => <img src={d.images.preview_webp.url} />)}
+          .map((d) => (
+            <img key={d.id} src={d.images.preview_webp.url} alt={d.title} />
+          ))}
       {error && <span>{error}</span>}
     </div>
   );
